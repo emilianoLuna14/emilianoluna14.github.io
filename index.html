@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link CSS file -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Digital Home of Emiliano Luna - Developer and Innovator</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p> Hi, I'm Emiliano Luna, a junior at San Diego State University majoring in Computer Science. I'm passionate about technology, sports, and travelling. I enjoy combining my love for problem-solving with creativity, whether it's building algorithms or working on personal projects like website development.<p>
+
+        <p> In addition to my studies, I'm a proud member of Phi Delta Theta, where I've had the chance to grow both personally and professionally through leadership and community involvement. I'm also part of the Club Soccer team here at SDSU, which keeps me active and connected to my love for sports.<p>
+
+        <p> Currently, I'm focused on deepening my knowledge in areas like data structures, algorithms, and computer organization, while pursuing my interest in web and app development. My ultimate goal is to land exciting internships and job opportunities with leading tech companies.<p>
+            
+            <div class="about-images">
+                <img src="selfImage.jpeg" alt="My Photo" width="200">
+                <img src="sdsu_logo.png" alt="SDSU Logo" width="275"> <!-- Add your SDSU logo here -->
+            </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio website to showcase my projects and skills. Built using HTML, CSS, and JavaScript.</p>
+                <a href="https://github.com/messiluna/project1" target="_blank">View Project</a>
+            </div>
+    
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>A weather app that provides real-time weather updates for any location using the OpenWeatherMap API.</p>
+                <a href="https://github.com/messiluna/project2" target="_blank">View Project</a>
+            </div>
+    
+            <div class="project-card">
+                <h3>Task Manager</h3>
+                <p>A task management app that allows users to create, update, and delete tasks. Built with React.js and Firebase.</p>
+                <p><strong>Technologies:</strong> React.js, Firebase</p>
+                <a href="https://github.com/messiluna/project3" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: emiluna72@gmail.com</p>
+        <div class="social-media">
+            <a href="https://linkedin.com/in/emiliano-luna-793057318" target="_blank">
+                <img src="linkedin_icon.png" alt="LinkedIn" width="30" height="30">
+            </a>
+            <a href="https://github.com/messiluna/messiluna" target="_blank">
+                <img src="github_icon.png" alt="GitHub" width="30" height="30">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Emiliano Luna</p>
+    </footer>
+
+    <!-- Custom Pop-Up Modal -->
+<div id="customAlert" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p id="animatedText">Welcome to my website!</p>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        // Get the text element
+        var textElement = document.getElementById("animatedText");
+        var text = textElement.innerText;
+        textElement.innerHTML = ""; // Clear the current text
+
+        // Wrap each letter in a span
+        for (var i = 0; i < text.length; i++) {
+            var span = document.createElement("span");
+            
+            // Handle spaces to maintain spacing between words
+            if (text[i] === " ") {
+                span.innerHTML = "&nbsp;"; // Add a non-breaking space for visual spacing
+            } else {
+                span.innerText = text[i]; // Add the current letter
+            }
+            
+            span.style.display = "inline-block"; // Set inline-block so transform works
+            span.style.animation = `bounce 0.5s ease ${i * 0.1}s 1`; // Bounce once, no infinite loop
+            textElement.appendChild(span); // Append the span to the p element
+        }
+
+        // Modal display logic
+        var modal = document.getElementById("customAlert");
+        modal.style.display = "block";
+
+        var closeBtn = document.querySelector(".close-btn");
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    };
+</script>
+
+
+</body>
+</html>
+
